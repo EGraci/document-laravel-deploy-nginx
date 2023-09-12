@@ -1,4 +1,4 @@
-###Configurate PHP and Composer
+### Configurate PHP and Composer
 
 ```
     sudo apt get-update
@@ -12,7 +12,7 @@
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
 
-###Default Configurate Nginx
+### Default Configurate Nginx
 
 ```
     apt install nginx
@@ -37,16 +37,16 @@ server {
 ```
 
 
-###Configurate HTTPS
+### Configurate HTTPS
 
 ```
     sudo apt install certbot python3-certbot-nginx`
     sudo certbot --nginx
 ```
 
-###Allow Route Laravel
+### Allow Route Laravel
 
-###Edit sites-available/[siteName]
+### Edit sites-available/[siteName]
 
 ```
     location / {
@@ -64,7 +64,7 @@ server {
         }
 ```
 
-###Restart Server
+### Restart Server
 
 ```
     systemctl restart nginx
