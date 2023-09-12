@@ -18,13 +18,18 @@
     apt install nginx
     rm /etc/nginx/sites-enabled/default
     nano /etc/nginx/sites-available/[siteName]
+    sudo ufw allow http
+    sudo ufw enable
+    sudo ufw status
+    sudo chmod -R 755 /var/www/[pathFolder]
+    sudo chown -R $USER:$USER /var/www/[pathFolder]
 ```
 
 ```
 server {
     listen 80;
     server_name mydomain.com www.mydomain.com;
-    root /var/www/[pathfile];
+    root /var/www/[pathFolder];
     index index.html index.htm index.php;
     location / {
         try_files $uri $uri/ =404;
