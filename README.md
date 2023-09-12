@@ -1,4 +1,5 @@
 ###Configurate PHP and Composer
+
 ```sudo apt get-update```
 ```sudo apt-get install software-properties-common```
 ```sudo add-apt-repository ppa:ondrej/php```
@@ -8,10 +9,15 @@
 ```nano /etc/php/[version]/cli/php.ini```
 ```sudo apt-get install composer```
 ```curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer ```
+
 ###Default Configurate Nginx
+
 ```apt install nginx```
+
 ```rm /etc/nginx/sites-enabled/default```
+
 ```nano /etc/nginx/sites-available/[siteName]```
+
 ```server {
     listen 80;
     server_name mydomain.com www.mydomain.com;
@@ -27,15 +33,21 @@
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/var/run/php/php[version]-fpm.sock;
     }
-}```
+}``
+
 ###Configurate HTTPS
+
 ```sudo apt install certbot python3-certbot-nginx```
 ```sudo certbot --nginx```
+
 ###Allow Route Laravel
+
 ###Edit sites-available/[siteName]
+
 ``` location / {
                 try_files $uri $uri/ /index.php$is_args$args;
         }```
+
 ```location ~ \.php$ {
                 fastcgi_index index.php;
                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
