@@ -1,4 +1,4 @@
-### Configurate PHP and Composer
+### Configurate PHP
 
 ```
     sudo apt get-update
@@ -7,7 +7,33 @@
     sudo apt-get install php[version] php[version]-cli php[version]-fpm
     sudo apt install php8.2-{mysql,cli,gd,zip,curl,mbstring,fileinfo,pdo-mysql,xml,json,bcmath }
     php -m
+```
+### Instalasion SSL for SSO
+Download <a href='https://curl.se/docs/caextract.html'>CA Certificat</a> 
+<br>
+Select Newest and copy link addres
+<br>
+
+```
+    wget -P /etc/php/[version] -O cacert.pem [pasteAddresLink] 
     nano /etc/php/[version]/cli/php.ini
+```
+### Edit PHP.ini
+find and replace code below
+```
+    curl.cainfo=/etc/php/[version]/cacert.pem
+    openssl.cafile=/etc/php/[version]/cacert.pem
+    extension=curl
+    extension=fileinfo
+    extension=mbstring
+    extension=mysqli
+    extension=pdo-mysql
+    extension=openssl
+```
+
+### Configurate Composer
+
+```
     sudo apt-get install composer
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 ```
