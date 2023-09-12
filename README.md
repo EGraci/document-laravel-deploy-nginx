@@ -5,7 +5,7 @@
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get install php[version] php[version]-cli php[version]-fpm
-    sudo apt install php8.2-{mysql,cli,gd,zip,curl,mbstring,fileinfo,pdo-mysql,xml,json,bcmath }
+    sudo apt install php[version]-{mysql,cli,gd,zip,curl,mbstring,fileinfo,pdo-mysql,xml,json,bcmath }
     php -m
 ```
 ### Instalasion SSL for SSO
