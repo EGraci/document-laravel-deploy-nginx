@@ -89,8 +89,6 @@ server {
     sudo ufw allow https
     sudo ufw enable
     sudo ufw status
-    sudo chmod -R 755 /var/www/[pathFolder]
-    sudo chown -R $USER:$USER /var/www/[pathFolder]
 ```
 
 ### Restart Server
@@ -105,4 +103,14 @@ server {
 ```
     sudo apt install certbot python3-certbot-nginx`
     sudo certbot --nginx
+```
+
+### Permission
+
+```
+    chmod -R 775 /var/www/[pathLaravel]/storage
+    chmod -R 775 /var/www/[pathLaravel]/bootstrap/cache
+    sudo chown -R $USER:www-data /var/www/[pathLaravel]/storage
+    sudo chown -R $USER:www-data /var/www/[pathLaravel]/bootstrap/cache
+    ps aux|grep nginx|grep -v grep
 ```
