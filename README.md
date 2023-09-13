@@ -44,12 +44,6 @@ find and replace code below
     apt install nginx
     rm /etc/nginx/sites-enabled/default
     nano /etc/nginx/sites-available/[siteName]
-    sudo ufw allow http
-    sudo ufw allow ssh
-    sudo ufw enable
-    sudo ufw status
-    sudo chmod -R 755 /var/www/[pathFolder]
-    sudo chown -R $USER:$USER /var/www/[pathFolder]
 ```
 
 ```
@@ -68,18 +62,7 @@ server {
 }
 ```
 
-
-### Configurate HTTPS
-
-```
-    sudo ufw allow https
-    sudo apt install certbot python3-certbot-nginx`
-    sudo certbot --nginx
-```
-
 ### Allow Route Laravel
-
-### Edit sites-available/[siteName]
 
 ```
     location / {
@@ -97,9 +80,29 @@ server {
         }
 ```
 
+### Finish Nginx
+
+```
+    sudo ln -s /etc/nginx/sites-available/[siteName] /etc/nginx/sites-enabled/
+    sudo ufw allow http
+    sudo ufw allow ssh
+    sudo ufw allow https
+    sudo ufw enable
+    sudo ufw status
+    sudo chmod -R 755 /var/www/[pathFolder]
+    sudo chown -R $USER:$USER /var/www/[pathFolder]
+```
+
 ### Restart Server
 
 ```
     systemctl restart nginx
     systemctl restart php[version]-fpm
+```
+
+### Configurate HTTPS
+
+```
+    sudo apt install certbot python3-certbot-nginx`
+    sudo certbot --nginx
 ```
