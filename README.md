@@ -45,6 +45,7 @@ find and replace code below
     rm /etc/nginx/sites-enabled/default
     nano /etc/nginx/sites-available/[siteName]
     sudo ufw allow http
+    sudo ufw allow ssh
     sudo ufw enable
     sudo ufw status
     sudo chmod -R 755 /var/www/[pathFolder]
@@ -71,6 +72,7 @@ server {
 ### Configurate HTTPS
 
 ```
+    sudo ufw allow https
     sudo apt install certbot python3-certbot-nginx`
     sudo certbot --nginx
 ```
