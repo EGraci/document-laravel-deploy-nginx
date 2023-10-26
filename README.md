@@ -105,8 +105,14 @@ server {
 ```
     sudo apt install certbot python3-certbot-nginx
     sudo certbot --nginx
-    certbot --apache
+    sudo certbot --apache
 ```
+## Delete Certificate HTTPS
+```
+    certbot certificates
+    certbot delete --cert-name domain-to-delete.com
+```
+remove code certbot on file /etc/nginx/sites-available/[site-name]
 
 ### Permission
 
