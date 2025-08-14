@@ -36,6 +36,7 @@ find and replace code below
 ```
     sudo apt-get install composer
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+    composer install --optimize-autoloader --no-dev
 ```
 
 ### Default Configurate Nginx
